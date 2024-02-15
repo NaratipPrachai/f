@@ -24,13 +24,53 @@ $conn = null;
     <title>Feedback System</title>
     <!-- Add Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS for hospital website */
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #343a40; /* Dark gray background */
+            color: #fff; /* White text */
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer span {
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Welcome to Feedback System</h1>
-        <div class="text-center">
-            <a href="feedback_form.php" class="btn btn-primary">กรอกข้อมูลและส่งคำตอบ</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Hospital Feedback System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="feedback_form.php">กรอกข้อมูลและส่งคำตอบ</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center mb-4">ยินดีต้อนรับ</h1>
 
         <h2 class="mt-5">ข้อมูลที่เคยส่งมา</h2>
         <div class="table-responsive mt-3">
@@ -49,7 +89,7 @@ $conn = null;
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($feedbacks as $feedback): ?>
+                <?php foreach ($feedbacks as $feedback): ?>
                         <tr>
                             <td><?= $feedback['id'] ?></td>
                             <td><?= $feedback['gender'] ?></td>
@@ -69,9 +109,15 @@ $conn = null;
             </table>
         </div>
     </div>
+    <footer>
+    <div class="container" style="color: #000;">
+        <span>Feedback System &copy; 2024</span>
+    </div>
+</footer>
+
+
+
+    <!-- Add Bootstrap JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-<?php
-// Close connection
-$conn = null;
-?>
